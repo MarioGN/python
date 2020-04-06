@@ -1,7 +1,8 @@
 class No():
-    def __init__(self, elemento, proximo=None):
+    def __init__(self, elemento, proximo=None, anterior=None):
         self.__elemento = elemento
         self.__proximo = proximo
+        self.__anterior = anterior
 
     @property
     def elemento(self):
@@ -19,8 +20,16 @@ class No():
     def proximo(self, proximo):
         self.__proximo = proximo
 
+    @property
+    def anterior(self):
+        return self.__anterior
+    
+    @anterior.setter
+    def anterior(self, anterior):
+        self.__anterior = anterior
 
-class ListaLigada():
+
+class ListaDuplamenteLigada():
     def __init__(self):
         self.__inicio = None
         self.__fim = None
@@ -37,8 +46,30 @@ class ListaLigada():
             self.__fim = novo
         else:
             self.__fim.proximo = novo
+            novo.anterior = self.__fim
             self.__fim = novo
         self.__tamanho += 1
+
+    def inserir_na_posicao(self, posicao, elemento):
+        if posicao > -1 and posicao <= self.__tamanho:
+            novo = No(elemento)
+            if posicao == 0:
+                novo.proximo = self.__inicio
+                self.__inicio.anterior = novo
+                self.__inicio = novo
+            elif posicao == self.__tamanho:
+                self.__fim.proximo = novo
+                novo.anterior = self.__fim
+                self.__fim = novo
+            else:
+                anterior = self.recuperar_no(posicao-1)
+                atual = anterior.proximo
+
+                anterior.proximo = novo
+                novo.anterior = anterior
+                atual.anterior = novo
+                novo.proximo = atual
+            self.__tamanho += 1
 
     def recuperar_no(self, posicao):
         resultado = None
@@ -57,22 +88,6 @@ class ListaLigada():
             return no.elemento
         return no
 
-    def inserir_na_posicao(self, posicao, elemento):
-        if posicao > -1 and posicao <= self.__tamanho:
-            novo = No(elemento)
-            if posicao == 0:
-                novo.proximo = self.__inicio
-                self.__inicio = novo
-            elif posicao == self.__tamanho:
-                self.__fim.proximo = novo
-                self.__fim = novo
-            else:
-                no_anterior = self.recuperar_no(posicao-1)
-                no_atual = self.recuperar_no(posicao)
-                no_anterior.proximo = novo
-                novo.proximo = no_atual
-            self.__tamanho += 1
-
     def contem(self, elemento):
         for i in range(self.__tamanho):
             no_atual = self.recuperar_no(i)
@@ -90,18 +105,23 @@ class ListaLigada():
     def remover_posicao(self, posicao):
         if posicao > -1 and posicao < self.__tamanho:
             if posicao == 0:
-                proximo_no = self.__inicio.proximo
-                self.__inicio = None
-                self.__inicio = proximo_no
+                proximo = self.__inicio.proximo
+                self.__inicio.proximo = None
+                proximo.anterior = None
+                self.__inicio = proximo
             elif posicao == self.__tamanho - 1:
-                penultimo_no = self.recuperar_no(self.__tamanho - 2)
-                penultimo_no.proximo = None
-                self.__fim = penultimo_no
+                penultimo = self.__fim.anterior
+                penultimo.proximo = None
+                self.__fim.anterior = None
+                self.__fim = penultimo
             else:
-                no_remover = self.recuperar_no(posicao)
-                no_anterior = self.recuperar_no(posicao - 1)
-                no_anterior.proximo = no_remover.proximo
-                no_remover.proximo = None
+                removido = self.recuperar_no(posicao)
+                anterior = removido.anterior
+                proximo = removido.proximo
+                anterior.proximo = proximo
+                proximo.anterior = anterior
+                removido.proximo = None
+                removido.anterior = None
             self.__tamanho -= 1
 
     def remover_elemento(self, elemento):

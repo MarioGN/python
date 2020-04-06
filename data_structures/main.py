@@ -1,8 +1,47 @@
 from vetores import vetor
-from listas_ligadas import lista_ligada
+from listas_ligadas import lista_ligada, lista_duplamente_ligada
 
 
 if __name__ == "__main__":
+    ldup = lista_duplamente_ligada.ListaDuplamenteLigada()
+    print('Lista vazia:', ldup.vazia())
+
+    ldup.inserir(1)
+    ldup.inserir(2)
+    ldup.inserir(3)
+    ldup.inserir(4)
+    ldup.inserir(5)
+    print('Lista vazia:', ldup.vazia())
+    print(ldup)
+    
+    ldup.inserir_na_posicao(0, 0)
+    ldup.inserir_na_posicao(6, 99)
+    ldup.inserir_na_posicao(3, 29)
+    print(ldup)
+
+    print('idx 0: ', ldup.recuperar_elemento(0))
+    print('idx 2: ', ldup.recuperar_elemento(2))
+    print('idx 7: ', ldup.recuperar_elemento(7))
+
+    print('contem "0"', ldup.contem(0))
+    print('contem "150"', ldup.contem(150))
+    print('contem "3"', ldup.contem(3))
+
+    print('idx de "0" ->', ldup.indice(0))
+    print('idx de "150" ->', ldup.indice(150))
+    print('idx de "3" ->', ldup.indice(3))
+
+    ldup.remover_posicao(-1)
+    ldup.remover_posicao(8)
+    ldup.remover_posicao(0)
+    ldup.remover_posicao(6)
+    ldup.remover_posicao(2)
+    print(ldup)
+
+    ldup.remover_elemento(3)
+    ldup.remover_elemento(5)
+    print(ldup)
+
     lklist = lista_ligada.ListaLigada()
     print(lklist.vazia())
 
@@ -14,38 +53,45 @@ if __name__ == "__main__":
 
     print(lklist)
 
-    # print(lklist.recuperar_no(-1))
-    # print(lklist.recuperar_no(6))
-    # print(lklist.recuperar_no(3).elemento)
-
-    print(lklist.recuperar_elemento(-1))
-    print(lklist.recuperar_elemento(6))
-    print(lklist.recuperar_elemento(3))
-
-    lklist.inserir_na_posicao(-1, 99)
-    lklist.inserir_na_posicao(100, 20)
-    lklist.inserir_na_posicao(2, 29)
-    lklist.inserir_na_posicao(4, 4)
-    print('\n\n', lklist)
-
-    print(lklist.contem(3))
-    print(lklist.contem(16))
-    print(lklist.contem(233))
-
-    print(lklist.indice(3))
-    print(lklist.indice(16))
-    print(lklist.indice(233))
-
+    lklist.inserir_na_posicao(-1, 20)
+    lklist.inserir_na_posicao(10, 220)
+    lklist.inserir_na_posicao(0, 0)
+    lklist.inserir_na_posicao(6, 89)
+    lklist.inserir_na_posicao(4, 44)
     print(lklist)
-    lklist.remover_posicao(-1)
-    lklist.remover_posicao(30)
-    lklist.remover_posicao(0)
-    lklist.remover_posicao(5)
-    lklist.remover_posicao(2)
 
-    lklist.remover_elemento(300)
-    lklist.remover_elemento(4)
-    print(lklist)
+    # # print(lklist.recuperar_no(-1))
+    # # print(lklist.recuperar_no(6))
+    # # print(lklist.recuperar_no(3).elemento)
+
+    # print(lklist.recuperar_elemento(-1))
+    # print(lklist.recuperar_elemento(6))
+    # print(lklist.recuperar_elemento(3))
+
+    # lklist.inserir_na_posicao(-1, 99)
+    # lklist.inserir_na_posicao(100, 20)
+    # lklist.inserir_na_posicao(2, 29)
+    # lklist.inserir_na_posicao(4, 4)
+    # print('\n\n', lklist)
+
+    # print(lklist.contem(3))
+    # print(lklist.contem(16))
+    # print(lklist.contem(233))
+
+    # print(lklist.indice(3))
+    # print(lklist.indice(16))
+    # print(lklist.indice(233))
+
+    # print(lklist)
+    # lklist.remover_posicao(-1)
+    # lklist.remover_posicao(30)
+    # lklist.remover_posicao(0)
+    # lklist.remover_posicao(5)
+    # lklist.remover_posicao(2)
+
+    # lklist.remover_elemento(300)
+    # lklist.remover_elemento(4)
+    # print(lklist)
 
 
     # v = vetor.Vetor()
