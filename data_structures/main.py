@@ -1,30 +1,53 @@
 from vetores import vetor
 from listas_ligadas import lista_ligada, lista_duplamente_ligada
 from pilhas import pilha
+from filas import fila
 
 
 if __name__ == "__main__":
-    pl = pilha.Pilha()
-    
-    print('Pilha vazia: ', pl.vazia())
+    f = fila.Fila()
+    print('Fila vazia: ', f.vazia())
 
-    pl.empilhar(1)
-    pl.empilhar(2)
-    pl.empilhar(3)
-    pl.empilhar(4)
-    pl.empilhar(5)
-    print('Pilha: ', pl)
+    f.inserir(1)
+    f.inserir(2)
+    f.inserir(3)
 
-    print(pl.desempilhar())
-    print(pl.desempilhar())
-    print(pl.desempilhar())
-    print(pl.desempilhar())
-    print(pl.desempilhar())
-    print(pl.desempilhar())
-    print(pl.desempilhar())
+    print(f)
+
+    print('Fila vazia: ', f.vazia())
+
+    print(f.remover())
+    print(f.remover())
+    print(f.remover())
+    print(f.remover())
+
+    f.inserir(4)
+    f.inserir(5)
+    print(f.remover())
+    print(f)
+
+
+    # pl = pilha.Pilha()
     
-    print('\n\n', pl)
-    print('Pilha vazia: ', pl.vazia())
+    # print('Pilha vazia: ', pl.vazia())
+
+    # pl.empilhar(1)
+    # pl.empilhar(2)
+    # pl.empilhar(3)
+    # pl.empilhar(4)
+    # pl.empilhar(5)
+    # print('Pilha: ', pl)
+
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    # print(pl.desempilhar())
+    
+    # print('\n\n', pl)
+    # print('Pilha vazia: ', pl.vazia())
 
     # ldup = lista_duplamente_ligada.ListaDuplamenteLigada()
     # print('Lista vazia:', ldup.vazia())
