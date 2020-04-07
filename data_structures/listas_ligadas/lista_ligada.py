@@ -26,6 +26,10 @@ class ListaLigada():
         self.__fim = None
         self.__tamanho = 0
 
+    @property
+    def tamanho(self):
+        return self.__tamanho
+
     def vazia(self):
         return self.__tamanho == 0
 

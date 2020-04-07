@@ -2,29 +2,49 @@ from vetores import vetor
 from listas_ligadas import lista_ligada, lista_duplamente_ligada
 from pilhas import pilha
 from filas import fila
+from conjuntos import conjunto
 
 
 if __name__ == "__main__":
-    f = fila.Fila()
-    print('Fila vazia: ', f.vazia())
+    conj = conjunto.Conjunto()
+    print('Set vazio: ', conj.vazia())
 
-    f.inserir(1)
-    f.inserir(2)
-    f.inserir(3)
+    conj.inserir(1)
+    conj.inserir(2)
+    conj.inserir(3)
+    conj.inserir(4)
+    conj.inserir(5)
 
-    print(f)
+    conj.inserir(4)
+    conj.inserir(4)
+    
+    conj.inserir_posicao(0, 43)
+    conj.inserir_posicao(3, 22)
+    conj.inserir_posicao(7, 9)
 
-    print('Fila vazia: ', f.vazia())
 
-    print(f.remover())
-    print(f.remover())
-    print(f.remover())
-    print(f.remover())
+    print('Conjunto -> ', conj)
+    
+    # f = fila.Fila()
+    # print('Fila vazia: ', f.vazia())
 
-    f.inserir(4)
-    f.inserir(5)
-    print(f.remover())
-    print(f)
+    # f.inserir(1)
+    # f.inserir(2)
+    # f.inserir(3)
+
+    # print(f)
+
+    # print('Fila vazia: ', f.vazia())
+
+    # print(f.remover())
+    # print(f.remover())
+    # print(f.remover())
+    # print(f.remover())
+
+    # f.inserir(4)
+    # f.inserir(5)
+    # print(f.remover())
+    # print(f)
 
 
     # pl = pilha.Pilha()

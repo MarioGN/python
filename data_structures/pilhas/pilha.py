@@ -44,7 +44,6 @@ class Pilha():
             print('pilha vazia!')
         return removido
         
-
     def __str__(self):
         aux = self.__inicio
         elementos = ''
