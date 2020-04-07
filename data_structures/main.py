@@ -3,27 +3,47 @@ from listas_ligadas import lista_ligada, lista_duplamente_ligada
 from pilhas import pilha
 from filas import fila
 from conjuntos import conjunto
+from espalhamento import tabela_espalhamento
 
 
 if __name__ == "__main__":
-    conj = conjunto.Conjunto()
-    print('Set vazio: ', conj.vazia())
+    tbl = tabela_espalhamento.TabelaEspalhamento()
 
-    conj.inserir(1)
-    conj.inserir(2)
-    conj.inserir(3)
-    conj.inserir(4)
-    conj.inserir(5)
+    tbl.inserir(1)
+    tbl.inserir(12)
+    tbl.inserir(277)
+    tbl.inserir(999)
+    tbl.inserir(658)
+    tbl.inserir(85)
+    tbl.inserir(9)
+    print(tbl)
 
-    conj.inserir(4)
-    conj.inserir(4)
+    tbl.remover(1)
+    tbl.remover(87)
+    tbl.remover(999)
+    tbl.remover(277)
+    tbl.remover(12)
+    print(tbl)
     
-    conj.inserir_posicao(0, 43)
-    conj.inserir_posicao(3, 22)
-    conj.inserir_posicao(7, 9)
+    
+    # conj = conjunto.Conjunto()
+    # print('Set vazio: ', conj.vazia())
+
+    # conj.inserir(1)
+    # conj.inserir(2)
+    # conj.inserir(3)
+    # conj.inserir(4)
+    # conj.inserir(5)
+
+    # conj.inserir(4)
+    # conj.inserir(4)
+    
+    # conj.inserir_posicao(0, 43)
+    # conj.inserir_posicao(3, 22)
+    # conj.inserir_posicao(7, 9)
 
 
-    print('Conjunto -> ', conj)
+    # print('Conjunto -> ', conj)
     
     # f = fila.Fila()
     # print('Fila vazia: ', f.vazia())

@@ -117,9 +117,9 @@ class ListaLigada():
 
     def __str__(self):
         aux = self.__inicio
-        elementos = ''
+        elementos = '['
         while aux:
             elementos = f'{elementos} {aux.elemento}'
             aux = aux.proximo
-        
+        elementos =  f'{elementos} ]'
         return elementos
