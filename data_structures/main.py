@@ -4,26 +4,50 @@ from pilhas import pilha
 from filas import fila
 from conjuntos import conjunto
 from espalhamento import tabela_espalhamento
+from mapas import mapa
 
 
 if __name__ == "__main__":
-    tbl = tabela_espalhamento.TabelaEspalhamento()
+    mp = mapa.Mapa(5)
+    print(mp)
 
-    tbl.inserir(1)
-    tbl.inserir(12)
-    tbl.inserir(277)
-    tbl.inserir(999)
-    tbl.inserir(658)
-    tbl.inserir(85)
-    tbl.inserir(9)
-    print(tbl)
+    mp.adicionar("cliente01", 'josé')
+    mp.adicionar("cliente03", 'maria')
+    mp.adicionar("cliente04", 'augusto')
+    mp.adicionar("cliente05", 'carla')
+    mp.adicionar("cliente06", 'joão')
+    mp.adicionar("cliente07", 'aparecida')
+    print(mp)
 
-    tbl.remover(1)
-    tbl.remover(87)
-    tbl.remover(999)
-    tbl.remover(277)
-    tbl.remover(12)
-    print(tbl)
+    print('cliente removido: ', mp.remover('cliente01'))
+    print(mp)
+
+    mp.adicionar('cliente01', 'joão')
+    print('\n\n',mp)
+
+    mp.adicionar('cliente01', 'joão atualizado')
+    print('\n\n',mp)
+
+    print(mp.recuperar('cliente01'))
+    print(mp.recuperar('chaveinvalida'))
+    
+    # tbl = tabela_espalhamento.TabelaEspalhamento()
+
+    # tbl.inserir(1)
+    # tbl.inserir(12)
+    # tbl.inserir(277)
+    # tbl.inserir(999)
+    # tbl.inserir(658)
+    # tbl.inserir(85)
+    # tbl.inserir(9)
+    # print(tbl)
+
+    # tbl.remover(1)
+    # tbl.remover(87)
+    # tbl.remover(999)
+    # tbl.remover(277)
+    # tbl.remover(12)
+    # print(tbl)
     
     
     # conj = conjunto.Conjunto()
