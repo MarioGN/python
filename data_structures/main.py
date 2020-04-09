@@ -5,31 +5,56 @@ from filas import fila
 from conjuntos import conjunto
 from espalhamento import tabela_espalhamento
 from mapas import mapa
+from arvores import arvore
 
 
 if __name__ == "__main__":
-    mp = mapa.Mapa(5)
-    print(mp)
+    raiz = arvore.ArvoreInt()
 
-    mp.adicionar("cliente01", 'josé')
-    mp.adicionar("cliente03", 'maria')
-    mp.adicionar("cliente04", 'augusto')
-    mp.adicionar("cliente05", 'carla')
-    mp.adicionar("cliente06", 'joão')
-    mp.adicionar("cliente07", 'aparecida')
-    print(mp)
+    raiz.inserir_elemento(arvore.NoArvoreInt(10))
 
-    print('cliente removido: ', mp.remover('cliente01'))
-    print(mp)
+    raiz.inserir_elemento(arvore.NoArvoreInt(1))
+    raiz.inserir_elemento(arvore.NoArvoreInt(11))
+    raiz.inserir_elemento(arvore.NoArvoreInt(6))
+    raiz.inserir_elemento(arvore.NoArvoreInt(5))
+    raiz.inserir_elemento(arvore.NoArvoreInt(13))
 
-    mp.adicionar('cliente01', 'joão')
-    print('\n\n',mp)
+    print(raiz)
 
-    mp.adicionar('cliente01', 'joão atualizado')
-    print('\n\n',mp)
+    print(raiz.buscar(arvore.NoArvoreInt(6)))
+    print(raiz.buscar(arvore.NoArvoreInt(13)))
 
-    print(mp.recuperar('cliente01'))
-    print(mp.recuperar('chaveinvalida'))
+    print('\n\nem ordem')
+    print(raiz.em_ordem())
+    print('\n\npré-ordem')
+    print(raiz.pre_ordem())
+    print('\n\npós-ordem')
+    print(raiz.pos_ordem())
+
+    print('Altura: ', raiz.altura())
+
+    # mp = mapa.Mapa(5)
+    # print(mp)
+
+    # mp.adicionar("cliente01", 'josé')
+    # mp.adicionar("cliente03", 'maria')
+    # mp.adicionar("cliente04", 'augusto')
+    # mp.adicionar("cliente05", 'carla')
+    # mp.adicionar("cliente06", 'joão')
+    # mp.adicionar("cliente07", 'aparecida')
+    # print(mp)
+
+    # print('cliente removido: ', mp.remover('cliente01'))
+    # print(mp)
+
+    # mp.adicionar('cliente01', 'joão')
+    # print('\n\n',mp)
+
+    # mp.adicionar('cliente01', 'joão atualizado')
+    # print('\n\n',mp)
+
+    # print(mp.recuperar('cliente01'))
+    # print(mp.recuperar('chaveinvalida'))
     
     # tbl = tabela_espalhamento.TabelaEspalhamento()
 
